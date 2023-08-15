@@ -1,14 +1,21 @@
 package com.bnta.bnta_backend_api_project.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity(name = "music")
+@DiscriminatorValue("music")
 public class Music extends Product{
-    private Long id;
+    @Column
     private String decade;
+    @Column(name = "song_length")
     private int songLength;
 
     public Music() {
     }
 
-    public Music(String creator, String title, double price, double cost, int availableQuantity, String decade, int songLength) {
+    public Music(String creator, String title, int price, int cost, int availableQuantity, String decade, int songLength) {
         super(creator, title, price, cost, availableQuantity);
         this.decade = decade;
         this.songLength = songLength;
