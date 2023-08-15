@@ -23,6 +23,7 @@ public class ProductController {
 //    public ResponseEntity<List<Book>> getAllBooks(){
 //        return new ResponseEntity(this.bookService.findAllBooks(), HttpStatus.FOUND);
 //    }
+
     @GetMapping
     public ResponseEntity<List<Product>> getAllBooks() {
         List<Product> books = productService.getAllBooks();

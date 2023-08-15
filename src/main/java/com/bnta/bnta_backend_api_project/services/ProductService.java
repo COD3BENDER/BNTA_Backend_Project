@@ -14,7 +14,9 @@ public class ProductService {
     ProductRepository productRepository;
 
     public List<Product> getAllBooks() {
-        return productRepository.findByDiscriminatorValue("book");
+
+
+        return productRepository.findAll();
     }
 
 }
