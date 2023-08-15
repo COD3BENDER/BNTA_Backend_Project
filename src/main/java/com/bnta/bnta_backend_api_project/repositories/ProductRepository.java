@@ -14,7 +14,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("from movie")
     List<Movie> findAllMovie();
     @Query("from music")
-    List<Music> findBAllMusic();
+    List<Music> findAllMusic();
 
 }
 
