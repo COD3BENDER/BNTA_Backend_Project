@@ -1,18 +1,31 @@
 package com.bnta.bnta_backend_api_project.models;
 
-public class Product { // need to add entity annotations column and the super mapper
-    private Long id;
+import jakarta.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "media_type")
+public abstract class Product { // need to add entity annotations column and the super mapper
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //example said GenerationType.AUTO, so check this if there are issues
+    @Column(name = "id", updatable = false, nullable = false)
+    protected Long id;
+    @Column
     protected String creator;
+    @Column
     protected String title;
-    protected double price; // should we turn them to ints so (pennies) to avoid division rounding errors?
-    protected double cost; // should we turn them to ints so (pennies) to avoid division rounding errors?
+    @Column
+    protected int price; // should we turn them to ints so (pennies) to avoid division rounding errors?
+    @Column
+    protected int cost; // should we turn them to ints so (pennies) to avoid division rounding errors?
+    @Column(name = "available_quantity")
     protected int availableQuantity;
 
     public Product() {
 
     }
 
-    public Product(String creator, String title, double price, double cost, int availableQuantity) {
+    public Product(String creator, String title, int price, int cost, int availableQuantity) {
         this.creator = creator;
         this.title = title;
         this.price = price;
@@ -36,19 +49,19 @@ public class Product { // need to add entity annotations column and the super ma
         this.title = title;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public double getCost() {
+    public int getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 
