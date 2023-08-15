@@ -1,6 +1,7 @@
 package com.bnta.bnta_backend_api_project.controllers;
 
 import com.bnta.bnta_backend_api_project.models.Customer;
+import com.bnta.bnta_backend_api_project.models.CustomerDTO;
 import com.bnta.bnta_backend_api_project.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,5 +37,20 @@ public class CustomerController {
         customerService.addCustomer(customerDTO);
         return new ResponseEntity(customerService.findAllCustomers(), HttpStatus.CREATED);
     }
+
+//    UPDATE
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Customer> updateCustomer(@RequestBody CustomerDTO customerDTO, @PathVariable Long id) {
+        Customer updateCustomer = customerService.updateCustomer(customerDTO, id);
+        return new ResponseEntity(updateCustomer, HttpStatus.OK);
+    }
+
+//    DELETE
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Long> deleteCustomer(@PathVariable Long id) {
+        customerService.deleteCustomer(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+
 
 }
