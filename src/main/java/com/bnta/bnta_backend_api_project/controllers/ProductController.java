@@ -1,5 +1,8 @@
 package com.bnta.bnta_backend_api_project.controllers;
 
+import com.bnta.bnta_backend_api_project.models.Book;
+import com.bnta.bnta_backend_api_project.models.Movie;
+import com.bnta.bnta_backend_api_project.models.Music;
 import com.bnta.bnta_backend_api_project.models.Product;
 import com.bnta.bnta_backend_api_project.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +27,28 @@ public class ProductController {
 //        return new ResponseEntity(this.bookService.findAllBooks(), HttpStatus.FOUND);
 //    }
 
-    @GetMapping
-    public ResponseEntity<List<Product>> getAllBooks() {
-        List<Product> books = productService.getAllBooks();
-        return new ResponseEntity<>(books, HttpStatus.OK);
+    @GetMapping({"/allproducts"})
+    public ResponseEntity<List<Product>> getAllProducts() {
+        List<Product> products = productService.getAllProducts();
+        return new ResponseEntity<>(products, HttpStatus.FOUND);
+    }
+
+    @GetMapping({"/books"})
+    public ResponseEntity<List<Book>> getAllBooks() {
+        List<Book> books = productService.getAllBooks();
+        return new ResponseEntity<>(books, HttpStatus.FOUND);
+    }
+
+    @GetMapping({"/movies"})
+    public ResponseEntity<List<Movie>> getAllMovies() {
+        List<Movie> movies = productService.getAllMovies();
+        return new ResponseEntity<>(movies, HttpStatus.FOUND);
+    }
+
+    @GetMapping({"/songs"})
+    public ResponseEntity<List<Music>> getAllSongs() {
+        List<Music> songs = productService.getAllSongs();
+        return new ResponseEntity<>(songs, HttpStatus.FOUND);
     }
 
 
