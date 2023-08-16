@@ -47,52 +47,50 @@ public class ProductController {
 //SHOW
 
     @GetMapping("/books/{title}")
-    public ResponseEntity <List<Book>> getBookByTitle(@PathVariable String title) {
+    public ResponseEntity<List<Book>> getBookByTitle(@PathVariable String title) {
         List<Book> books = productService.getBookByTitle(title);
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
     @GetMapping("/songs/{title}")
-    public ResponseEntity <List<Music>> getMusicByTitle(@PathVariable String title) {
+    public ResponseEntity<List<Music>> getMusicByTitle(@PathVariable String title) {
         List<Music> songs = productService.getMusicByTitle(title);
         return new ResponseEntity<>(songs, HttpStatus.OK);
     }
 
     @GetMapping("/movie/{title}")
-    public ResponseEntity <List<Movie>> getMovieByTitle(@PathVariable String title) {
+    public ResponseEntity<List<Movie>> getMovieByTitle(@PathVariable String title) {
         List<Movie> movies = productService.getMovieByTitle(title);
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 
 //CREATE
 
-    @PostMapping()
+    @PostMapping("/addBook")
     public ResponseEntity<Book> postBook(@RequestBody BookDTO bookDTO) {
-       Book newBook = productService.addBook(bookDTO);
+        Book newBook = productService.addBook(bookDTO);
         return new ResponseEntity<>(newBook, HttpStatus.CREATED);
     }
 
-    @PostMapping()
+    @PostMapping("/addSong")
     public ResponseEntity<Music> postMusic(@RequestBody MusicDTO musicDTO) {
 
         Music newSong = productService.addSong(musicDTO);
         return new ResponseEntity<>(newSong, HttpStatus.CREATED);
     }
 
-    @PostMapping()
+    @PostMapping("/addMovie")
     public ResponseEntity<Movie> postMovie(@RequestBody MovieDTO movieDTO) {
         Movie newMovie = productService.addMovie(movieDTO);
         return new ResponseEntity<>(newMovie, HttpStatus.CREATED);
     }
 
+    // UPDATE
 
-//
-////    UPDATE
-//
-//    @PutMapping(value = "/{id}")
-//    public ResponseEntity<Book> updateBook(@RequestBody BookDTO bookDTO, @PathVariable Long id) {
-//        Book updateBook = bookService.updateBook(bookDTO, id);
-//        return new ResponseEntity(updateBook, HttpStatus.OK);
+    @PutMapping(value = "/updateBook/{availableQuantity}/{title}")
+    public ResponseEntity<Book> updateBook(@PathVariable int availableQuantity, @PathVariable String title) {
+        Book updateBook = productService.updateBook(availableQuantity, title);
+        return new ResponseEntity(updateBook, HttpStatus.OK);
 //    }
 //
 ////    DELETE
@@ -104,6 +102,5 @@ public class ProductController {
 //    }
 
 
-
-
+    }
 }

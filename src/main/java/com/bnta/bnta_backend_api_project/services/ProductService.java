@@ -76,4 +76,11 @@ public class ProductService {
                 movieDTO.getRunTime());
         return this.productRepository.save(newMovie);
     }
+
+    public Book updateBook(int availableQuantity, String title) {
+        Book bookToUpdate = productRepository.find1BookByTitle(title);
+        bookToUpdate.setAvailableQuantity(availableQuantity);
+        productRepository.save(bookToUpdate);
+        return bookToUpdate;
+    }
 }
