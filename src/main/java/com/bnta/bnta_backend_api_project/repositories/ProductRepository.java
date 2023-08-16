@@ -16,5 +16,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("from music")
     List<Music> findAllMusic();
 
+    @Query("from book")
+    List<Book> findBookByTitle(String name);
+
+
+
 }
 

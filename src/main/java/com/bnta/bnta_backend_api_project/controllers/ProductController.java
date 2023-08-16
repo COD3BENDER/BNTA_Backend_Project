@@ -21,11 +21,6 @@ public class ProductController {
     ProductService productService;
 
 //    INDEX
-//
-//    @GetMapping
-//    public ResponseEntity<List<Book>> getAllBooks(){
-//        return new ResponseEntity(this.bookService.findAllBooks(), HttpStatus.FOUND);
-//    }
 
     @GetMapping({"/allproducts"})
     public ResponseEntity<List<Product>> getAllProducts() {
@@ -49,6 +44,12 @@ public class ProductController {
     public ResponseEntity<List<Music>> getAllSongs() {
         List<Music> songs = productService.getAllSongs();
         return new ResponseEntity<>(songs, HttpStatus.FOUND);
+    }
+
+    @GetMapping("/{books}/{title}")
+    public ResponseEntity<List<Book>> getBook(@PathVariable String name) {
+        List<Book> book = productService.getBookByTitle(name);
+        return new ResponseEntity<>(book, HttpStatus.FOUND);
     }
 
 
