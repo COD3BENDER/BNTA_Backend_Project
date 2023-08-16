@@ -52,4 +52,28 @@ public class ProductService {
                 bookDTO.getNoOfPages());
         return this.productRepository.save(newBook);
     }
+
+    public Music addSong(MusicDTO musicDTO) {
+        Music newSong = new Music(
+                musicDTO.getCreator(),
+                musicDTO.getTitle(),
+                musicDTO.getPrice(),
+                musicDTO.getCost(),
+                musicDTO.getAvailableQuantity(),
+                musicDTO.getDecade(),
+                musicDTO.getSongLength());
+        return this.productRepository.save(newSong);
+    }
+
+    public Movie addMovie(MovieDTO movieDTO) {
+        Movie newMovie = new Movie(
+                movieDTO.getCreator(),
+                movieDTO.getTitle(),
+                movieDTO.getPrice(),
+                movieDTO.getCost(),
+                movieDTO.getAvailableQuantity(),
+                movieDTO.getRating(),
+                movieDTO.getRunTime());
+        return this.productRepository.save(newMovie);
+    }
 }

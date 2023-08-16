@@ -1,9 +1,6 @@
 package com.bnta.bnta_backend_api_project.controllers;
 
-import com.bnta.bnta_backend_api_project.models.Book;
-import com.bnta.bnta_backend_api_project.models.Movie;
-import com.bnta.bnta_backend_api_project.models.Music;
-import com.bnta.bnta_backend_api_project.models.Product;
+import com.bnta.bnta_backend_api_project.models.*;
 import com.bnta.bnta_backend_api_project.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,7 +44,7 @@ public class ProductController {
         return new ResponseEntity<>(songs, HttpStatus.FOUND);
     }
 
-
+//SHOW
 
     @GetMapping("/books/{title}")
     public ResponseEntity <List<Book>> getBookByTitle(@PathVariable String title) {
@@ -67,22 +64,28 @@ public class ProductController {
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 
-    @PostMapping
+//CREATE
 
-//    SHOW
+    @PostMapping()
+    public ResponseEntity<Book> postBook(@RequestBody BookDTO bookDTO) {
+       Book newBook = productService.addBook(bookDTO);
+        return new ResponseEntity<>(newBook, HttpStatus.CREATED);
+    }
 
-//    @GetMapping(value = "/{id}")
-//    public ResponseEntity<Optional<Book>> getBook(@PathVariable Long id) {
-//        return new ResponseEntity(bookService.findBook(id), HttpStatus.FOUND);
-//    } // Check if we need to pull out data from product as opposed to book
-//
-////    CREATE
-//
-//    @PostMapping
-//    public ResponseEntity<Customer> postCustomer(@RequestBody BookDTO bookDTO) {
-//        bookService.addBook(bookDTO);
-//        return new ResponseEntity(bookService.findAllBooks(), HttpStatus.CREATED);
-//    }
+    @PostMapping()
+    public ResponseEntity<Music> postMusic(@RequestBody MusicDTO musicDTO) {
+
+        Music newSong = productService.addSong(musicDTO);
+        return new ResponseEntity<>(newSong, HttpStatus.CREATED);
+    }
+
+    @PostMapping()
+    public ResponseEntity<Movie> postMovie(@RequestBody MovieDTO movieDTO) {
+        Movie newMovie = productService.addMovie(movieDTO);
+        return new ResponseEntity<>(newMovie, HttpStatus.CREATED);
+    }
+
+
 //
 ////    UPDATE
 //
