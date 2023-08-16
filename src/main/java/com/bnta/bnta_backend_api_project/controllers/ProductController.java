@@ -47,8 +47,8 @@ public class ProductController {
     }
 
     @GetMapping("/{books}/{title}")
-    public ResponseEntity<List<Book>> getBook(@PathVariable String name) {
-        List<Book> book = productService.getBookByTitle(name);
+    public ResponseEntity<List<Book>> getBook(@PathVariable String title) {
+        List<Book> book = productService.getBookByTitle(title);
         return new ResponseEntity<>(book, HttpStatus.FOUND);
     }
 
