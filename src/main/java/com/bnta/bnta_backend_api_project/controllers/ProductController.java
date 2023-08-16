@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping({"/products"})
@@ -46,10 +47,17 @@ public class ProductController {
         return new ResponseEntity<>(songs, HttpStatus.FOUND);
     }
 
-    @GetMapping("/{books}/{title}")
-    public ResponseEntity<List<Book>> getBook(@PathVariable String title) {
-        List<Book> book = productService.getBookByTitle(title);
-        return new ResponseEntity<>(book, HttpStatus.FOUND);
+
+
+    @GetMapping("/books/{title}")
+    public ResponseEntity<Product> getBookByTitle(@PathVariable String title) {
+        Book book = productService.getBookByTitle(title);
+
+        if (book != null) {
+            return new ResponseEntity<>(book, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 

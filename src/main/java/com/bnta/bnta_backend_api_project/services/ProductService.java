@@ -31,7 +31,8 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
-    public List<Book> getBookByTitle(String name) {
-        return productRepository.findBookByTitle(name);
+
+    public Book getBookByTitle(String title) {
+        return productRepository.findBookByTitle(title);
     }
 }

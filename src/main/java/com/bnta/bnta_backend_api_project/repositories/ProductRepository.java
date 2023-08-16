@@ -3,6 +3,7 @@ package com.bnta.bnta_backend_api_project.repositories;
 import com.bnta.bnta_backend_api_project.models.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,10 +17,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("from music")
     List<Music> findAllMusic();
 
-    @Query("from book")
-    List<Book> findBookByTitle(String name);
+    @Query("SELECT b FROM Book b WHERE b.title = :title")
+    Book findBookByTitle(@Param("title") String title);
 
 
 
 }
+
 
