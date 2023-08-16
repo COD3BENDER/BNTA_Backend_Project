@@ -1,9 +1,6 @@
 package com.bnta.bnta_backend_api_project.services;
 
-import com.bnta.bnta_backend_api_project.models.Book;
-import com.bnta.bnta_backend_api_project.models.Movie;
-import com.bnta.bnta_backend_api_project.models.Music;
-import com.bnta.bnta_backend_api_project.models.Product;
+import com.bnta.bnta_backend_api_project.models.*;
 import com.bnta.bnta_backend_api_project.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,5 +39,17 @@ public class ProductService {
 
     public List<Movie> getMovieByTitle(String title) {
         return productRepository.findMovieByTitle(title);
+    }
+
+    public Book addBook(BookDTO bookDTO) {
+        Book newBook = new Book(
+                bookDTO.getCreator(),
+                bookDTO.getTitle(),
+                bookDTO.getPrice(),
+                bookDTO.getCost(),
+                bookDTO.getAvailableQuantity(),
+                bookDTO.getYearOfPublication(),
+                bookDTO.getNoOfPages());
+        return this.productRepository.save(newBook);
     }
 }

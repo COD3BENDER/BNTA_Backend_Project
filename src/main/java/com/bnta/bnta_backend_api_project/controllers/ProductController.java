@@ -67,6 +67,7 @@ public class ProductController {
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 
+    @PostMapping
 
 //    SHOW
 
