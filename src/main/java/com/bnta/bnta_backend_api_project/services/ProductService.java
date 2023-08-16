@@ -43,6 +43,4 @@ public class ProductService {
     public List<Movie> getMovieByTitle(String title) {
         return productRepository.findMovieByTitle(title);
     }
-
-    public
 }
