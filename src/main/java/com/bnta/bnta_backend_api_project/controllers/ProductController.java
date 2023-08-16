@@ -85,22 +85,19 @@ public class ProductController {
         return new ResponseEntity<>(newMovie, HttpStatus.CREATED);
     }
 
-    // UPDATE
+    // UPDATE can perform get by title methods first if user forgets the id they want to update
 
-    @PutMapping(value = "/updateBook/{availableQuantity}/{title}")
-    public ResponseEntity<Book> updateBook(@PathVariable int availableQuantity, @PathVariable String title) {
-        Book updateBook = productService.updateBook(availableQuantity, title);
-        return new ResponseEntity(updateBook, HttpStatus.OK);
-//    }
-//
-////    DELETE
-//
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity<Long> deleteBook(@PathVariable Long id) {
-//        bookService.deleteBook(id);
-//        return new ResponseEntity<>(id, HttpStatus.OK);
-//    }
+    @PutMapping(value = "/updateProduct/{availableQuantity}/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable int availableQuantity, @PathVariable Long id) {
+        Product updateProduct = productService.updateProduct(availableQuantity, id);
+        return new ResponseEntity(updateProduct, HttpStatus.OK);
+    }
 
-
+    //    DELETE
+    @DeleteMapping(value = "/deleteP/{id}")
+    public ResponseEntity<Long> deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 }
+
