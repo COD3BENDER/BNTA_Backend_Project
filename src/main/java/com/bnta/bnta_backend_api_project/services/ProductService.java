@@ -35,4 +35,12 @@ public class ProductService {
     public List<Book> getBookByTitle(String title) {
         return productRepository.findBookByTitle(title);
     }
+
+    public List<Music> getMusicByTitle(String title) {
+        return productRepository.findMusicByTitle(title);
+    }
+
+    public List<Movie> getMovieByTitle(String title) {
+        return productRepository.findMovieByTitle(title);
+    }
 }

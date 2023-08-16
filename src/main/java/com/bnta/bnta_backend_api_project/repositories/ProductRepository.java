@@ -20,6 +20,13 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query(value = "SELECT * FROM product WHERE media_type = 'book' AND title LIKE %?1%", nativeQuery = true)
     List<Book> findBookByTitle(String title);
 
+    @Query(value = "SELECT * FROM product WHERE media_type = 'music' AND title LIKE %?1%", nativeQuery = true)
+    List<Music> findMusicByTitle(String title);
+
+    @Query(value = "SELECT * FROM product WHERE media_type = 'movie' AND title LIKE %?1%", nativeQuery = true)
+    List<Movie> findMovieByTitle(String title);
+
+
 
 
 }

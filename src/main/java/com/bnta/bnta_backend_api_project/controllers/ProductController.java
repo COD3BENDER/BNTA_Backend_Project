@@ -55,6 +55,18 @@ public class ProductController {
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
+    @GetMapping("/songs/{title}")
+    public ResponseEntity <List<Music>> getMusicByTitle(@PathVariable String title) {
+        List<Music> songs = productService.getMusicByTitle(title);
+        return new ResponseEntity<>(songs, HttpStatus.OK);
+    }
+
+    @GetMapping("/movie/{title}")
+    public ResponseEntity <List<Movie>> getMovieByTitle(@PathVariable String title) {
+        List<Movie> movies = productService.getMovieByTitle(title);
+        return new ResponseEntity<>(movies, HttpStatus.OK);
+    }
+
 
 //    SHOW
 
