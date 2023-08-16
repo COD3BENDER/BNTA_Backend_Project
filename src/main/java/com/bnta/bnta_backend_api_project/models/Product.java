@@ -1,5 +1,6 @@
 package com.bnta.bnta_backend_api_project.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -24,7 +25,8 @@ public abstract class Product { // need to add entity annotations column and the
     @Column(name = "available_quantity")
     protected int availableQuantity;
 
-    @OneToMany
+    @OneToMany(mappedBy = "product")
+    @JsonIgnoreProperties({"product"})
     private List<ProductsOrders> productOrders;
 
     public Product() {
