@@ -1,6 +1,10 @@
 package com.bnta.bnta_backend_api_project.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -18,6 +22,10 @@ public class Customer {
     @Column(name = "card_number")
     private String cardNumber;
 
+    @OneToMany(mappedBy = "customer")
+    @JsonIgnoreProperties({"customer"})
+    private List<Orders> orders;
+
     public Customer() {
     }
 
@@ -25,6 +33,7 @@ public class Customer {
         this.name = name;
         this.email = email;
         this.cardNumber = cardNumber;
+        this.orders = new ArrayList<>();
     }
 
     public Long getId() {
@@ -57,5 +66,13 @@ public class Customer {
 
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
+    }
+
+    public List<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
     }
 }

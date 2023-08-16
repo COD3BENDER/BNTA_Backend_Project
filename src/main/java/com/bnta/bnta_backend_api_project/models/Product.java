@@ -2,6 +2,9 @@ package com.bnta.bnta_backend_api_project.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "media_type")
@@ -21,6 +24,9 @@ public abstract class Product { // need to add entity annotations column and the
     @Column(name = "available_quantity")
     protected int availableQuantity;
 
+    @OneToMany
+    private List<ProductsOrders> productOrders;
+
     public Product() {
 
     }
@@ -31,6 +37,7 @@ public abstract class Product { // need to add entity annotations column and the
         this.price = price;
         this.cost = cost;
         this.availableQuantity = availableQuantity;
+        this.productOrders = new ArrayList<>();
     }
 
     public String getCreator() {
