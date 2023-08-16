@@ -17,8 +17,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("from music")
     List<Music> findAllMusic();
 
-    @Query("SELECT b FROM Book b WHERE b.title = :title")
-    Book findBookByTitle(@Param("title") String title);
+    @Query(value = "SELECT * FROM product WHERE media_type = 'book' AND title LIKE %?1%", nativeQuery = true)
+    List<Book> findBookByTitle(String title);
 
 
 

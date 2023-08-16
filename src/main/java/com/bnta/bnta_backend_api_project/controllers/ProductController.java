@@ -23,7 +23,7 @@ public class ProductController {
 
 //    INDEX
 
-    @GetMapping({"/allproducts"})
+    @GetMapping({"/all"})
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productService.getAllProducts();
         return new ResponseEntity<>(products, HttpStatus.FOUND);
@@ -50,14 +50,9 @@ public class ProductController {
 
 
     @GetMapping("/books/{title}")
-    public ResponseEntity<Product> getBookByTitle(@PathVariable String title) {
-        Book book = productService.getBookByTitle(title);
-
-        if (book != null) {
-            return new ResponseEntity<>(book, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity <List<Book>> getBookByTitle(@PathVariable String title) {
+        List<Book> books = productService.getBookByTitle(title);
+        return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
 

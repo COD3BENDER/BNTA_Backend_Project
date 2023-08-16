@@ -32,7 +32,7 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public Book getBookByTitle(String title) {
+    public List<Book> getBookByTitle(String title) {
         return productRepository.findBookByTitle(title);
     }
 }
