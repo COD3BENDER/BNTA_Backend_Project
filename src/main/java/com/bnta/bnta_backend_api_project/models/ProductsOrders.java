@@ -1,5 +1,6 @@
 package com.bnta.bnta_backend_api_project.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,11 +12,23 @@ public class ProductsOrders {
     @Column(name = "quantity_sold")
     private int quantitySold;
 
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    @JsonIgnoreProperties({"products_orders"})
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "orders_id")
+    @JsonIgnoreProperties({"products_orders"})
+    private Orders orders;
+
     public ProductsOrders() {
     }
 
-    public ProductsOrders(int quantitySold) {
+    public ProductsOrders(int quantitySold, Product product, Orders orders) {
         this.quantitySold = quantitySold;
+        this.product = product;
+        this.orders = orders;
     }
 
     public int getQuantitySold() {

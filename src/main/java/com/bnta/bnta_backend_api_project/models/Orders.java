@@ -1,8 +1,12 @@
 package com.bnta.bnta_backend_api_project.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Orders {
     @Id
@@ -12,11 +16,22 @@ public class Orders {
     @Column(name = "order_date_time")
     LocalDateTime orderDateTime ;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    @JsonIgnoreProperties({"orders"})
+    private Customer customer;
+
+    @OneToMany(mappedBy = "orders")
+    @JsonIgnoreProperties
+    private List<ProductsOrders> productsOrders;
+
     public Orders() {
     }
 
-    public Orders(LocalDateTime orderDateTime) {
+    public Orders(LocalDateTime orderDateTime, Customer customer) {
         this.orderDateTime = orderDateTime;
+        this.customer = customer;
+        this.productsOrders = new ArrayList<>();
     }
 
     public Long getId() {
@@ -33,5 +48,13 @@ public class Orders {
 
     public void setOrderDateTime(LocalDateTime orderDateTime) {
         this.orderDateTime = orderDateTime;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

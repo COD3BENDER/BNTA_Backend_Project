@@ -77,10 +77,15 @@ public class ProductService {
         return this.productRepository.save(newMovie);
     }
 
-    public Book updateBook(int availableQuantity, String title) {
-        Book bookToUpdate = productRepository.find1BookByTitle(title);
-        bookToUpdate.setAvailableQuantity(availableQuantity);
-        productRepository.save(bookToUpdate);
-        return bookToUpdate;
+    public Product updateProduct(int availableQuantity, Long id) {
+        Product productToUpdate = productRepository.findById(id).get();
+        productToUpdate.setAvailableQuantity(availableQuantity);
+        productRepository.save(productToUpdate);
+        return productToUpdate;
+    }
+
+    //DELETE METHOD
+    public void deleteProduct(Long id) {
+        productRepository.deleteById(id);
     }
 }
