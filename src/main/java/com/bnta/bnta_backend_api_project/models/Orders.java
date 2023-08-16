@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Orders {
     @Id
@@ -18,12 +21,17 @@ public class Orders {
     @JsonIgnoreProperties({"orders"})
     private Customer customer;
 
+    @OneToMany(mappedBy = "orders")
+    @JsonIgnoreProperties
+    private List<ProductsOrders> productsOrders;
+
     public Orders() {
     }
 
     public Orders(LocalDateTime orderDateTime, Customer customer) {
         this.orderDateTime = orderDateTime;
         this.customer = customer;
+        this.productsOrders = new ArrayList<>();
     }
 
     public Long getId() {
