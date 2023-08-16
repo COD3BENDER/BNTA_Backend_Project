@@ -1,13 +1,6 @@
 package com.bnta.bnta_backend_api_project.models;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import java.util.List;
-
-public class BookDTO {
+public class MovieDTO {
 
     String creator;
 
@@ -18,21 +11,21 @@ public class BookDTO {
 
     int availableQuantity;
 
-    int yearOfPublication;
+    double rating;
 
-    int noOfPages;
+    int runTime;
 
-    public BookDTO() {
+    public MovieDTO() {
     }
 
-    public BookDTO(String creator, String title, int price, int cost, int availableQuantity, int yearOfPublication, int noOfPages) {
+    public MovieDTO(String creator, String title, int price, int cost, int availableQuantity, double rating, int runTime) {
         this.creator = creator;
         this.title = title;
         this.price = price;
         this.cost = cost;
         this.availableQuantity = availableQuantity;
-        this.yearOfPublication = yearOfPublication;
-        this.noOfPages = noOfPages;
+        this.rating = rating;
+        this.runTime = runTime;
     }
 
     public String getCreator() {
@@ -75,20 +68,19 @@ public class BookDTO {
         this.availableQuantity = availableQuantity;
     }
 
-    public int getYearOfPublication() {
-        return yearOfPublication;
+    public double getRating() {
+        return rating;
     }
 
-    public void setYearOfPublication(int yearOfPublication) {
-        this.yearOfPublication = yearOfPublication;
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 
-    public int getNoOfPages() {
-        return noOfPages;
+    public int getRunTime() {
+        return runTime;
     }
 
-    public void setNoOfPages(int noOfPages) {
-        this.noOfPages = noOfPages;
+    public void setRunTime(int runTime) {
+        this.runTime = runTime;
     }
-
 }

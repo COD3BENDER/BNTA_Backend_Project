@@ -33,11 +33,11 @@ public class DataLoader implements ApplicationRunner {
         // Movie(String creator, String title, int price, int cost, int availableQuantity, double rating, int runTime)
         //Music(String creator, String title, int price, int cost, int availableQuantity, String decade, int songLength)
         List<Book> books = Arrays.asList(
-                new Book("JK Rowling","Harry Potter the cursed child",13,11,12,2001,500),
+                new Book("JK Rowling","Harry",13,11,12,2001,500),
                 new Book("JK Rowling","Harry Potter the cursed child 2",43,11,12,2001,500),
                 new Book("JK Rowling","Harry Potter the cursed child 3",12,11,12,2001,500),
-                new Book("JK Rowling","Harry Potter the cursed child 4",533,11,12,2001,500)
-
+                new Book("JK Rowling","Harry Potter the cursed child 4",533,11,12,2001,500),
+                new Book("Khalid Hosseini","A Thousand Splendid Suns",533,11,12,2001,500)
         );
 
         List<Movie> movies = Arrays.asList(

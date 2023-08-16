@@ -1,9 +1,6 @@
 package com.bnta.bnta_backend_api_project.services;
 
-import com.bnta.bnta_backend_api_project.models.Book;
-import com.bnta.bnta_backend_api_project.models.Movie;
-import com.bnta.bnta_backend_api_project.models.Music;
-import com.bnta.bnta_backend_api_project.models.Product;
+import com.bnta.bnta_backend_api_project.models.*;
 import com.bnta.bnta_backend_api_project.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,5 +27,60 @@ public class ProductService {
 
     public List<Product> getAllProducts() {
         return productRepository.findAll();
+    }
+
+    public List<Book> getBookByTitle(String title) {
+        return productRepository.findBookByTitle(title);
+    }
+
+    public List<Music> getMusicByTitle(String title) {
+        return productRepository.findMusicByTitle(title);
+    }
+
+    public List<Movie> getMovieByTitle(String title) {
+        return productRepository.findMovieByTitle(title);
+    }
+
+    public Book addBook(BookDTO bookDTO) {
+        Book newBook = new Book(
+                bookDTO.getCreator(),
+                bookDTO.getTitle(),
+                bookDTO.getPrice(),
+                bookDTO.getCost(),
+                bookDTO.getAvailableQuantity(),
+                bookDTO.getYearOfPublication(),
+                bookDTO.getNoOfPages());
+        return this.productRepository.save(newBook);
+    }
+
+    public Music addSong(MusicDTO musicDTO) {
+        Music newSong = new Music(
+                musicDTO.getCreator(),
+                musicDTO.getTitle(),
+                musicDTO.getPrice(),
+                musicDTO.getCost(),
+                musicDTO.getAvailableQuantity(),
+                musicDTO.getDecade(),
+                musicDTO.getSongLength());
+        return this.productRepository.save(newSong);
+    }
+
+    public Movie addMovie(MovieDTO movieDTO) {
+        Movie newMovie = new Movie(
+                movieDTO.getCreator(),
+                movieDTO.getTitle(),
+                movieDTO.getPrice(),
+                movieDTO.getCost(),
+                movieDTO.getAvailableQuantity(),
+                movieDTO.getRating(),
+                movieDTO.getRunTime());
+        return this.productRepository.save(newMovie);
+    }
+
+    public Book updateBook(int availableQuantity, String title) {
+        Book bookToUpdate = productRepository.find1BookByTitle(title);
+        bookToUpdate.setAvailableQuantity(availableQuantity);
+        productRepository.save(bookToUpdate);
+        return bookToUpdate;
     }
 }

@@ -1,9 +1,6 @@
 package com.bnta.bnta_backend_api_project.controllers;
 
-import com.bnta.bnta_backend_api_project.models.Book;
-import com.bnta.bnta_backend_api_project.models.Movie;
-import com.bnta.bnta_backend_api_project.models.Music;
-import com.bnta.bnta_backend_api_project.models.Product;
+import com.bnta.bnta_backend_api_project.models.*;
 import com.bnta.bnta_backend_api_project.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping({"/products"})
@@ -21,13 +19,8 @@ public class ProductController {
     ProductService productService;
 
 //    INDEX
-//
-//    @GetMapping
-//    public ResponseEntity<List<Book>> getAllBooks(){
-//        return new ResponseEntity(this.bookService.findAllBooks(), HttpStatus.FOUND);
-//    }
 
-    @GetMapping({"/allproducts"})
+    @GetMapping({"/all"})
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productService.getAllProducts();
         return new ResponseEntity<>(products, HttpStatus.FOUND);
@@ -51,28 +44,53 @@ public class ProductController {
         return new ResponseEntity<>(songs, HttpStatus.FOUND);
     }
 
+//SHOW
 
-//    SHOW
+    @GetMapping("/books/{title}")
+    public ResponseEntity<List<Book>> getBookByTitle(@PathVariable String title) {
+        List<Book> books = productService.getBookByTitle(title);
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
 
-//    @GetMapping(value = "/{id}")
-//    public ResponseEntity<Optional<Book>> getBook(@PathVariable Long id) {
-//        return new ResponseEntity(bookService.findBook(id), HttpStatus.FOUND);
-//    } // Check if we need to pull out data from product as opposed to book
-//
-////    CREATE
-//
-//    @PostMapping
-//    public ResponseEntity<Customer> postCustomer(@RequestBody BookDTO bookDTO) {
-//        bookService.addBook(bookDTO);
-//        return new ResponseEntity(bookService.findAllBooks(), HttpStatus.CREATED);
-//    }
-//
-////    UPDATE
-//
-//    @PutMapping(value = "/{id}")
-//    public ResponseEntity<Book> updateBook(@RequestBody BookDTO bookDTO, @PathVariable Long id) {
-//        Book updateBook = bookService.updateBook(bookDTO, id);
-//        return new ResponseEntity(updateBook, HttpStatus.OK);
+    @GetMapping("/songs/{title}")
+    public ResponseEntity<List<Music>> getMusicByTitle(@PathVariable String title) {
+        List<Music> songs = productService.getMusicByTitle(title);
+        return new ResponseEntity<>(songs, HttpStatus.OK);
+    }
+
+    @GetMapping("/movie/{title}")
+    public ResponseEntity<List<Movie>> getMovieByTitle(@PathVariable String title) {
+        List<Movie> movies = productService.getMovieByTitle(title);
+        return new ResponseEntity<>(movies, HttpStatus.OK);
+    }
+
+//CREATE
+
+    @PostMapping("/addBook")
+    public ResponseEntity<Book> postBook(@RequestBody BookDTO bookDTO) {
+        Book newBook = productService.addBook(bookDTO);
+        return new ResponseEntity<>(newBook, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/addSong")
+    public ResponseEntity<Music> postMusic(@RequestBody MusicDTO musicDTO) {
+
+        Music newSong = productService.addSong(musicDTO);
+        return new ResponseEntity<>(newSong, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/addMovie")
+    public ResponseEntity<Movie> postMovie(@RequestBody MovieDTO movieDTO) {
+        Movie newMovie = productService.addMovie(movieDTO);
+        return new ResponseEntity<>(newMovie, HttpStatus.CREATED);
+    }
+
+    // UPDATE
+
+    @PutMapping(value = "/updateBook/{availableQuantity}/{title}")
+    public ResponseEntity<Book> updateBook(@PathVariable int availableQuantity, @PathVariable String title) {
+        Book updateBook = productService.updateBook(availableQuantity, title);
+        return new ResponseEntity(updateBook, HttpStatus.OK);
 //    }
 //
 ////    DELETE
@@ -84,6 +102,5 @@ public class ProductController {
 //    }
 
 
-
-
+    }
 }

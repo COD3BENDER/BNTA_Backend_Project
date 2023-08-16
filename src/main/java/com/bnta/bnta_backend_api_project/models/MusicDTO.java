@@ -1,13 +1,6 @@
 package com.bnta.bnta_backend_api_project.models;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import java.util.List;
-
-public class BookDTO {
+public class MusicDTO {
 
     String creator;
 
@@ -18,21 +11,21 @@ public class BookDTO {
 
     int availableQuantity;
 
-    int yearOfPublication;
+    String decade;
 
-    int noOfPages;
+    int songLength;
 
-    public BookDTO() {
+    public MusicDTO() {
     }
 
-    public BookDTO(String creator, String title, int price, int cost, int availableQuantity, int yearOfPublication, int noOfPages) {
+    public MusicDTO(String creator, String title, int price, int cost, int availableQuantity, String decade, int songLength) {
         this.creator = creator;
         this.title = title;
         this.price = price;
         this.cost = cost;
         this.availableQuantity = availableQuantity;
-        this.yearOfPublication = yearOfPublication;
-        this.noOfPages = noOfPages;
+        this.decade = decade;
+        this.songLength = songLength;
     }
 
     public String getCreator() {
@@ -75,20 +68,19 @@ public class BookDTO {
         this.availableQuantity = availableQuantity;
     }
 
-    public int getYearOfPublication() {
-        return yearOfPublication;
+    public String getDecade() {
+        return decade;
     }
 
-    public void setYearOfPublication(int yearOfPublication) {
-        this.yearOfPublication = yearOfPublication;
+    public void setDecade(String decade) {
+        this.decade = decade;
     }
 
-    public int getNoOfPages() {
-        return noOfPages;
+    public int getSongLength() {
+        return songLength;
     }
 
-    public void setNoOfPages(int noOfPages) {
-        this.noOfPages = noOfPages;
+    public void setSongLength(int songLength) {
+        this.songLength = songLength;
     }
-
 }
