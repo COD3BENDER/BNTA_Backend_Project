@@ -42,6 +42,22 @@ public abstract class Product { // need to add entity annotations column and the
         this.productOrders = new ArrayList<>();
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<ProductsOrders> getProductOrders() {
+        return productOrders;
+    }
+
+    public void setProductOrders(List<ProductsOrders> productOrders) {
+        this.productOrders = productOrders;
+    }
+
     public String getCreator() {
         return creator;
     }
