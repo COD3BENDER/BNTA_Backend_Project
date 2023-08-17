@@ -41,10 +41,11 @@ public class OrdersService {
     }
 
                                     //example order 1, customer 3
-    public Orders addOrderToCustomer(Long ordersId, Long customerId) {
-        Orders orderToLink = ordersRepository.findById(ordersId).get(); //1st order // retrieves the order we want
+    public Orders addOrderToCustomer(Long customerId) {
+        Orders orderToLink = new Orders(); //create a new order
 
-        Customer customer = customerRepository.findById(customerId).get(); // 3rd customer
+
+        Customer customer = customerRepository.findById(customerId).get(); // link customer to its order
         orderToLink.setCustomer(customer);
         orderToLink.setOrderDateTime(LocalDateTime.now()); // time the customer will have placed the order
         ordersRepository.save(orderToLink); // save it to database

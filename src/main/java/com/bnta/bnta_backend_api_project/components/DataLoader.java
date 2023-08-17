@@ -82,30 +82,5 @@ public class DataLoader implements ApplicationRunner {
             productRepository.save(musicName);
         }
 
-        // ORDERS DATA LOADER
-
-        List<Orders> ordersList = Arrays.asList(
-                new Orders(LocalDateTime.now(),null),
-                new Orders(LocalDateTime.now(),null),
-                new Orders(LocalDateTime.now(),null),
-                new Orders(LocalDateTime.now(),null)
-        );
-
-        for (Orders orders : ordersList) {
-            Orders orders1 = new Orders(orders.getOrderDateTime(),orders.getCustomer());
-            ordersRepository.save(orders1);
-        }
-
-
-
-
-
-        // PRODUCT_ORDERS DATA LOADER
-
-
-
-
-
-
     }
 }
