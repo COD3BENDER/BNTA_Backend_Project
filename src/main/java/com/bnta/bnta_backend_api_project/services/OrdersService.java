@@ -2,8 +2,12 @@ package com.bnta.bnta_backend_api_project.services;
 
 import com.bnta.bnta_backend_api_project.models.Customer;
 import com.bnta.bnta_backend_api_project.models.Orders;
+import com.bnta.bnta_backend_api_project.models.Product;
+import com.bnta.bnta_backend_api_project.models.ProductsOrders;
 import com.bnta.bnta_backend_api_project.repositories.CustomerRepository;
 import com.bnta.bnta_backend_api_project.repositories.OrdersRepository;
+import com.bnta.bnta_backend_api_project.repositories.ProductRepository;
+import com.bnta.bnta_backend_api_project.repositories.ProductsOrdersRepository;
 import jakarta.persistence.criteria.Order;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +24,12 @@ public class OrdersService {
     
     @Autowired
     OrdersRepository ordersRepository;
+
+    @Autowired
+    ProductRepository productRepository;
+
+    @Autowired
+    ProductsOrdersRepository productsOrdersRepository;
 
 
     public List<Orders> findAllOrders() {
@@ -40,4 +50,15 @@ public class OrdersService {
         ordersRepository.save(orderToLink); // save it to database
         return orderToLink;
     }
+
+    public ProductsOrders addProductToProdOrders(Long prodOrderId, Long productId, int quantitySold) {
+        ProductsOrders prodOrdersToLink = productsOrdersRepository.findById(prodOrderId).get(); //1st order // retrieves the productsOrder we want
+
+        Product product = productRepository.findById(productId).get();
+        prodOrdersToLink.setProduct(product);
+        prodOrdersToLink.setQuantitySold(quantitySold);
+        productsOrdersRepository.save(prodOrdersToLink); // save it to database
+        return prodOrdersToLink;
+    }
+
 }
