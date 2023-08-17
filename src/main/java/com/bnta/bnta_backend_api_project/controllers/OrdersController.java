@@ -24,6 +24,7 @@ public class OrdersController {
         return new ResponseEntity(this.ordersService.findAllOrders(), HttpStatus.FOUND);
     }
 
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Customer>> getOrder(@PathVariable Long id) {
         return new ResponseEntity(ordersService.findOrder(id), HttpStatus.FOUND);
@@ -36,6 +37,10 @@ public class OrdersController {
         return new ResponseEntity<>(linkedProdOrderToProd, HttpStatus.CREATED);
     }
 
-
+    @PutMapping(value = "orderProdOrder/{ordersId}/{productsId}")
+    public ResponseEntity<ProductsOrders> addOrdersToProdOrders(@PathVariable Long ordersId, @PathVariable Long productsId){
+        ProductsOrders linkedProdOrdertoOrder =  ordersService.addOrdersToProdOrders(ordersId, productsId);
+        return new ResponseEntity<>(linkedProdOrdertoOrder, HttpStatus.CREATED);
+    }
 
 }
