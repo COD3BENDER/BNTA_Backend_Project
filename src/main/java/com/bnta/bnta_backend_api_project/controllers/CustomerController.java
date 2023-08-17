@@ -59,9 +59,9 @@ public class CustomerController {
 
 
     //  Add Order
-    @PutMapping(value = "addOrder/{ordersId}/{customerId}")
-    public ResponseEntity<Orders> addCustomerToOrder(@PathVariable Long ordersId, @PathVariable Long customerId){
-      Orders linkedOrder =  ordersService.addOrderToCustomer(ordersId,customerId);
+    @PutMapping(value = "addOrder/{customerId}")
+    public ResponseEntity<Orders> addCustomerToOrder(@PathVariable Long customerId){
+      Orders linkedOrder =  ordersService.addOrderToCustomer(customerId);
         return new ResponseEntity<>(linkedOrder, HttpStatus.CREATED);
     }
 
