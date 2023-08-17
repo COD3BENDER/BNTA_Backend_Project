@@ -36,6 +36,10 @@ public class OrdersService {
         return this.ordersRepository.findAll();
     }
 
+    public List<ProductsOrders> findAllProductsOrders() {
+        return this.productsOrdersRepository.findAll();
+    }
+
     public Customer findOrder(Long id) {
         return this.customerRepository.findById(id).get();
     }
@@ -59,6 +63,14 @@ public class OrdersService {
         Product product = productRepository.findById(productId).get();
         prodOrdersToLink.setProduct(product);
         prodOrdersToLink.setQuantitySold(quantitySold);
+        productsOrdersRepository.save(prodOrdersToLink); // save it to database
+        return prodOrdersToLink;
+    }
+
+    public ProductsOrders addOrdersToProdOrders(Long orderId, Long productOrderId) {
+        ProductsOrders prodOrdersToLink = productsOrdersRepository.findById(productOrderId).get(); //1st order // retrieves the productsOrder we want
+        Orders orders = ordersRepository.findById(orderId).get(); // link customer to its order
+        prodOrdersToLink.setOrders(orders);
         productsOrdersRepository.save(prodOrdersToLink); // save it to database
         return prodOrdersToLink;
     }

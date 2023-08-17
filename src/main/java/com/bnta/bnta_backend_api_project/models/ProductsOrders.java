@@ -51,6 +51,8 @@ public class ProductsOrders {
         this.product = product;
     }
 
-
+    public void setOrders(Orders orders) {
+        this.orders = orders;
+    }
 
 }
