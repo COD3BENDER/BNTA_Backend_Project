@@ -51,9 +51,10 @@ public class OrdersService {
         return orderToLink;
     }
 
-    public ProductsOrders addProductToProdOrders(Long prodOrderId, Long productId, int quantitySold) {
-        ProductsOrders prodOrdersToLink = productsOrdersRepository.findById(prodOrderId).get(); //1st order // retrieves the productsOrder we want
+    public ProductsOrders addProductToProdOrders(Long productId, int quantitySold) {
+//        ProductsOrders prodOrdersToLink = productsOrdersRepository.findById(prodOrderId).get(); //1st order // retrieves the productsOrder we want
 
+        ProductsOrders prodOrdersToLink = new ProductsOrders();
         Product product = productRepository.findById(productId).get();
         prodOrdersToLink.setProduct(product);
         prodOrdersToLink.setQuantitySold(quantitySold);
