@@ -11,7 +11,7 @@ import java.util.List;
 @DiscriminatorColumn(name = "media_type")
 public abstract class Product { // need to add entity annotations column and the super mapper
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //example said GenerationType.AUTO, so check this if there are issues
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
     protected Long id;
     @Column
@@ -19,9 +19,9 @@ public abstract class Product { // need to add entity annotations column and the
     @Column
     protected String title;
     @Column
-    protected int price; // should we turn them to ints so (pennies) to avoid division rounding errors?
+    protected int price; // ints (pennies) to avoid division rounding errors
     @Column
-    protected int cost; // should we turn them to ints so (pennies) to avoid division rounding errors?
+    protected int cost;
     @Column(name = "available_quantity")
     protected int availableQuantity;
 

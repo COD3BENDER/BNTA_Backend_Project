@@ -44,7 +44,7 @@ public class ProductController {
         return new ResponseEntity<>(songs, HttpStatus.FOUND);
     }
 
-//SHOW
+//      SHOW
 
     @GetMapping("/books/{title}")
     public ResponseEntity<List<Book>> getBookByTitle(@PathVariable String title) {
@@ -64,7 +64,7 @@ public class ProductController {
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 
-//CREATE
+//    CREATE
 
     @PostMapping("/addBook")
     public ResponseEntity<Book> postBook(@RequestBody BookDTO bookDTO) {
@@ -85,7 +85,7 @@ public class ProductController {
         return new ResponseEntity<>(newMovie, HttpStatus.CREATED);
     }
 
-    // UPDATE can perform get by title methods first if user forgets the id they want to update
+//     UPDATE can perform get by title methods first if user forgets the id they want to update
 
     @PutMapping(value = "/updateProduct/{availableQuantity}/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable int availableQuantity, @PathVariable Long id) {
@@ -93,7 +93,7 @@ public class ProductController {
         return new ResponseEntity(updateProduct, HttpStatus.OK);
     }
 
-    //    DELETE
+//     DELETE
     @DeleteMapping(value = "/deleteProduct/{id}")
     public ResponseEntity<Long> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
