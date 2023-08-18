@@ -32,7 +32,13 @@ public class CustomerService {
         Customer customerToUpdate = customerRepository.findById(id).get();
         customerToUpdate.setName(customerDTO.getName());
         customerToUpdate.setEmail(customerDTO.getEmail());
-        customerToUpdate.setCardNumber(customerDTO.getCardNumber());
+
+        //  beginner index is the total length - 4 so that we only get the last 4 digits of any card length as beginning index would start at 4th character before the last
+
+        String cardNumber= customerDTO.getCardNumber();
+        String lastFourDigitsCN = cardNumber.substring(cardNumber.length() - 4);
+        customerToUpdate.setCardNumber(lastFourDigitsCN);   //  sets the last 4 digits of card number
+
         customerRepository.save(customerToUpdate);
         return customerToUpdate;
     }

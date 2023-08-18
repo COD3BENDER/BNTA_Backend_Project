@@ -20,7 +20,7 @@ public class ProductController {
 
 //    INDEX
 
-    @GetMapping({"/all"})
+    @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productService.getAllProducts();
         return new ResponseEntity<>(products, HttpStatus.FOUND);
@@ -94,7 +94,7 @@ public class ProductController {
     }
 
     //    DELETE
-    @DeleteMapping(value = "/deleteP/{id}")
+    @DeleteMapping(value = "/deleteProduct/{id}")
     public ResponseEntity<Long> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return new ResponseEntity<>(id, HttpStatus.OK);

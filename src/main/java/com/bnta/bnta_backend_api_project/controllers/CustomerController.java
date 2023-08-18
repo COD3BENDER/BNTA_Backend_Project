@@ -57,7 +57,6 @@ public class CustomerController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
-
     //  Add Order
     @PutMapping(value = "addOrder/{customerId}")
     public ResponseEntity<Orders> addCustomerToOrder(@PathVariable Long customerId){

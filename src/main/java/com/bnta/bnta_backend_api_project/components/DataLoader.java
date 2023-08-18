@@ -29,10 +29,10 @@ public class DataLoader implements ApplicationRunner {
         // CUSTOMER DATA LOADER
 
         List<Customer> customers = Arrays.asList(
-              new Customer("cust1","email1","cardNumber1"),
-                new Customer("cust2","email2","cardNumber2"),
-                new Customer("cust3","email3","cardNumber3"),
-                new Customer("cust4","email4","cardNumber4")
+              new Customer("cust1","email1","5678"),
+                new Customer("cust2","email2","5678"),
+                new Customer("cust3","email3","5678"),
+                new Customer("cust4","email4","5678")
         );
 
         for (Customer customer : customers) {
