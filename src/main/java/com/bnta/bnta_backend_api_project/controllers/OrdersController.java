@@ -31,13 +31,13 @@ public class OrdersController {
     }
 
     //  Add Product to ProductOrders
-    @PutMapping(value = "prodOrders/{productsId}/{quantitySold}")
+    @PutMapping(value = "linkProdOrders/{productsId}/{quantitySold}")
     public ResponseEntity<ProductsOrders> addProdToProdOrders(@PathVariable Long productsId, @PathVariable int quantitySold){
         ProductsOrders linkedProdOrderToProd =  ordersService.addProductToProdOrders(productsId, quantitySold);
         return new ResponseEntity<>(linkedProdOrderToProd, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "orderProdOrder/{ordersId}/{productsId}")
+    @PutMapping(value = "linkOrderProdOrder/{ordersId}/{productsId}")
     public ResponseEntity<ProductsOrders> addOrdersToProdOrders(@PathVariable Long ordersId, @PathVariable Long productsId){
         ProductsOrders linkedProdOrdertoOrder =  ordersService.addOrdersToProdOrders(ordersId, productsId);
         return new ResponseEntity<>(linkedProdOrdertoOrder, HttpStatus.CREATED);
