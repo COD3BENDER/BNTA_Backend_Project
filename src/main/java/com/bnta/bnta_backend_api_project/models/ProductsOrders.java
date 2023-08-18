@@ -55,4 +55,11 @@ public class ProductsOrders {
         this.orders = orders;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public Orders getOrders() {
+        return orders;
+    }
 }

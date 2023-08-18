@@ -20,7 +20,7 @@ public class ProductController {
 
 //    INDEX
 
-    @GetMapping({"/all"})
+    @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productService.getAllProducts();
         return new ResponseEntity<>(products, HttpStatus.FOUND);
