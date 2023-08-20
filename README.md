@@ -1,10 +1,10 @@
 # **Backend Project (BNTA Week 7)**
 ## **List of collaborators**
 The following project is a collaboration effort between the following members on BNTA C11:
-> - Tarek Ahmed 
-> - Blezzy Dela Cruz
-> - Jannah Anwar (Github: @jannahthecodemaster)
-> - Mohamed I. Hussain 
+> - Blezzy Dela Cruz (Github:[blezzydcruz](https://github.com/blezzydcruz))
+> - Jannah Anwar (Github: [jannahthecodemaster](https://github.com/jannahthecodemaster))
+> - Mohamed I. Hussain (Github: [essamcreates](https://github.com/essamcreates))
+> - Tarek Ahmed (Github: [TarekQMUL](https://github.com/TarekQMUL))
 ## **Project Theme**
 Our stock management system for media shops draws inspiration from the dynamic and ever-evolving nature of the media industry. Just as media content constantly evolves and adapts to new trends, our system is designed to efficiently manage and track a diverse range of media products such as books, movies and music. This system is designed to provide store managers with the tools to effortlessly monitor stock levels, anticipate demand and ensure a seamless customer experience. 
 This API was coded in Java. We used the SpringBoot that implements the Spring Framework as well as Postman and PostgreSQL to view the API request endpoints. 
@@ -17,11 +17,11 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 > Friday 18/08/23 -- Presentation day
 ADD TIMELINE FROM DRAW.IO
 ## The API
->- We have a one-to-many relationship between >Customers and Orders
+>- We have a one-to-many relationship between Customers and Orders
 >- We have a one-to-many relationship between Orders and Product_orders
 >- We have a one-to-many relationship between Products and Product_orders
 ## **Entity Relationship Diagram (ERD)**
-PLACEHOLDER FOR ERD
+![ERD](diagrams/MediaAPI-ERD.png)
 ## **Class Diagram**
 PLACEHOLDER FOR CLASS DIAGRAM
 ## **Dependencies**
