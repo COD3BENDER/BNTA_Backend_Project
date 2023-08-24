@@ -36,9 +36,9 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 3. **PUT (CREATE)**
 4. **DELETE**
 ## **Postman Commands**
-> - Get Customers: localhost:8080/customers
-> - Get Products:  localhost:8080/products
-> - Create an Order for Customer 1: localhost:8080/customers/addOrder/1
-> - Link Products with Product Orders: localhost:8080/orders/linkProdOrders/1/100
-> - Link the Order with Product Orders: localhost:8080/orders/linkOrderProdOrder/1/1
-> - Show Product Orders which contains the orders with the customers: localhost:8080/productsOrders
+> - Get Customers: `localhost:8080/customers`
+> - Get Products:  `localhost:8080/products`
+> - Create an Order for Customer 1: `localhost:8080/customers/addOrder/1`
+> - Link Products with Product Orders: `localhost:8080/orders/linkProdOrders/1/100`
+> - Link the Order with Product Orders: `localhost:8080/orders/linkOrderProdOrder/1/1`
+> - Show Product Orders which contains the orders with the customers: `localhost:8080/productsOrders`
