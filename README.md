@@ -9,14 +9,14 @@ The following project is a collaboration effort between the following members on
 Our stock management system for media shops draws inspiration from the dynamic and ever-evolving nature of the media industry. Just as media content constantly evolves and adapts to new trends, our system is designed to efficiently manage and track a diverse range of media products such as books, movies and music. This system is designed to provide store managers with the tools to effortlessly monitor stock levels, anticipate demand and ensure a seamless customer experience. 
 This API was coded in Java. We used the SpringBoot that implements the Spring Framework as well as Postman and PostgreSQL to view the API request endpoints. 
 ## **Project Timeline**
-> Friday 11/08/23 -- Brainstorm different themes  
-> Monday 14/08/23 -- Planning ERD and UMLs, thinking about MVP and Extensions
-> Tuesday 15/08/23 -- Building project skeleton including models and repositories, single table
-> Wednesday 16/08/23 -- Adding functionalities including product subclasses, populated database, worked on some routes
-> Thursday 17/08/23 -- Finalising project code, building up routes and mapping
-> Friday 18/08/23 -- Presentation day
+> - Friday 11/08/23 -- Brainstorm different themes  
+> - Monday 14/08/23 -- Planning ERD and UMLs, thinking about MVP and Extensions
+> - Tuesday 15/08/23 -- Building project skeleton including models and repositories, single table
+> - Wednesday 16/08/23 -- Adding functionalities including product subclasses, populated database, worked on some routes
+> - Thursday 17/08/23 -- Finalising project code, building up routes and mapping
+> - Friday 18/08/23 -- Presentation day
 
-ADD TIMELINE FROM DRAW.IO
+![TIMELINE](diagrams/MediaAPITL.png)
 ## The API
 >- We have a one-to-many relationship between Customers and Orders
 >- We have a one-to-many relationship between Orders and Product_orders
