@@ -1,6 +1,6 @@
 # **Backend Project (BNTA Week 7)**
 ## **List of collaborators**
-The following project is a collaboration effort between the following members on BNTA C11:
+**The following project is a collaboration effort between the following members on BNTA C11:**
 - Blezzy Dela Cruz (Github:[blezzydcruz](https://github.com/blezzydcruz))
 - Jannah Anwar (Github: [jannahthecodemaster](https://github.com/jannahthecodemaster))
 - Mohamed I. Hussain (Github: [essamcreates](https://github.com/essamcreates))
