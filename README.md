@@ -12,19 +12,19 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 > - Friday 11/08/23 -- Brainstorm different themes  
 > - Monday 14/08/23 -- Planning ERD and UMLs, thinking about MVP and Extensions
 > - Tuesday 15/08/23 -- Building project skeleton including models and repositories, single table
-> - Wednesday 16/08/23 -- Adding functionalities including product subclasses, populated database, worked on some routes
+> - Wednesday 16/08/23 -- Adding functionalities including product subclasses, populated database and routes
 > - Thursday 17/08/23 -- Finalising project code, building up routes and mapping
 > - Friday 18/08/23 -- Presentation day
 
 ![TIMELINE](diagrams/MediaAPITL.png)
 ## The API
->- We have a one-to-many relationship between Customers and Orders
->- We have a one-to-many relationship between Orders and Product_orders
->- We have a one-to-many relationship between Products and Product_orders
+> - We have a one-to-many relationship between Customers and Orders
+> - We have a one-to-many relationship between Orders and Product_orders
+> - We have a one-to-many relationship between Products and Product_orders
 ## **Entity Relationship Diagram (ERD)**
 ![ERD](diagrams/MediaAPI-ERD.png)
 ## **Class Diagram**
-PLACEHOLDER FOR CLASS DIAGRAM
+![CD](diagrams/MediaAPICD.png)
 ## **Dependencies**
 - Spring Web
 - SpringBoot DevTools
@@ -35,3 +35,10 @@ PLACEHOLDER FOR CLASS DIAGRAM
 2. **POST (CREATE)**
 3. **PUT (CREATE)**
 4. **DELETE**
+## **Postman Commands**
+> - Get Customers: localhost:8080/customers
+> - Get Products:  localhost:8080/products
+> - Create an Order for Customer 1: localhost:8080/customers/addOrder/1
+> - Link Products with Product Orders: localhost:8080/orders/linkProdOrders/1/100
+> - Link the Order with Product Orders: localhost:8080/orders/linkOrderProdOrder/1/1
+> - Show Product Orders which contains the orders with the customers: localhost:8080/productsOrders
