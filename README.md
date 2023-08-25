@@ -35,7 +35,7 @@ This API was coded in Java. We used the SpringBoot that implements the Spring Fr
 2. **POST (CREATE)**
 3. **PUT (CREATE)**
 4. **DELETE**
-## **Postman Commands**
+## **Restful API routes**
 - Get Customers: `localhost:8080/customers` - this command retrieves all customer objects and shows their id, name, contact detail and the last 4 digits of their card number.
 - Get Products:  `localhost:8080/products` - this command retrieves all product objects (book, movie or music). 
 - Create an Order for Customer [1]: `localhost:8080/customers/addOrder/1` - this command creates an order and allows us to link a customer to this order. It will likely need to run at the point of placing an order in the checkout, after adding it to a basket which 'holds' it for the meantime. You will be able to see the date and time or the order so this is why it needs to match the time of placing an order in checkout.
