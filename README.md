@@ -6,7 +6,7 @@
 - Mohamed I. Hussain (Github: [essamcreates](https://github.com/essamcreates))
 - Tarek Ahmed (Github: [TarekQMUL](https://github.com/TarekQMUL))
 ## **Project Theme**
-Our stock management system for media shops draws inspiration from the dynamic and ever-evolving nature of the media industry. Just as media content constantly evolves and adapts to new trends, our system is designed to efficiently manage and track a diverse range of media products such as books, movies and music. This system is designed to provide store managers with the tools to effortlessly monitor stock levels, anticipate demand and ensure a seamless customer experience. 
+Our stock management system for media shops draws inspiration from the dynamic and ever-evolving nature of the media industry. Just as media content constantly evolves and adapts to new trends, our system is designed to efficiently manage and track a diverse range of media products such as books, movies and music. This system is designed to provide store managers with the tools to effortlessly monitor stock levels, anticipate demand and ensure a seamless customer experience. It is also designed to allow the owner to expand the number of products sold in the shop by easily adding them into the single products table, inherting all the properties of a 'product' whilst also adding its own specific properties.
 This API was coded in Java. We used the SpringBoot that implements the Spring Framework as well as Postman and PostgreSQL to view the API request endpoints. 
 ## **Project Timeline**
 - Friday 11/08/23 -- Brainstorm different themes
